@@ -1,0 +1,20 @@
+version: '2'
+services:
+    ldap:
+        image: dinkel/openldap
+        environment:
+            SLAPD_PASSWORD: Ahphahsheet5Aem6Eizu
+            SLAPD_DOMAIN: seclab.chrummibei.ch
+            SLAPD_ORGANISATION: Chrummibei SecLab
+    keycloak:
+        image: jboss/keycloak
+        environment:
+            KEYCLOAK_USER: kcuser
+            KEYCLOAK_PASSWORD: aiqu6eeToh1aeleeh4av
+        ports:
+            - "8080:8080"
+            - "9990:9990"
+        links:
+            - ldap
+
+
